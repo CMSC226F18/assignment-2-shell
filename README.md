@@ -12,15 +12,15 @@ significant algorithms must be fully explained by comments.
 
 ## Part 1: Fixing the helper functions
 
-1. You should read through the code (`shell.h` and `shell.c`) to make
+1. You should read through the code (`bshell.h` and `bshell.c`) to make
 sure you understand the functions I've written to get you started.
 Your task will be to finish the shell as specified below.  Note that
-the header file, `shell.h` specifies a number of constants you should
+the header file, `bshell.h` specifies a number of constants you should
 use.  You may need to add more.  Be warned that these constants can
 cause and/or hide bugs in your code.
 
 2. You can compile this program by typing `gcc -Wpedantic -o
-shell shell.c`.  Run the program; it should crash with a
+shell bshell.c`.  Run the program; it should crash with a
 segmentation fault.  Rats!
 
 3. **Overview:** The shell program you will write runs in an infinite
@@ -49,7 +49,7 @@ Now, when the program crashes, type `where` within the gdb program.
 This will tell you where your program crashed.  Here's an example.
 
 ```
-pi@raspberry$ gcc -g2 -o shell shell.c
+pi@raspberry$ gcc -g2 -o shell bshell.c
 pi@raspberry$ gdb shell
 ...
 (gdb) run
@@ -61,12 +61,12 @@ strlen () at ../sysdeps/x86_64/strlen.S:106
 (gdb) where
 #0  strlen () at ../sysdeps/x86_64/strlen.S:106
 #1  0x00007ffff7a7c69c in _IO_puts (str=0x0) at ioputs.c:35
-#2  0x0000000000400a2a in parsePath (dirs=0x7fffffffdbe0) at shell.c:68
-#3  0x0000000000400d24 in main (argc=1, argv=0x7fffffffdd48) at shell.c:179
+#2  0x0000000000400a2a in parsePath (dirs=0x7fffffffdbe0) at bshell.c:68
+#3  0x0000000000400d24 in main (argc=1, argv=0x7fffffffdd48) at bshell.c:179
 ```
 
 
-The preceding progam crashed at shell.c line 68 when trying to access
+The preceding progam crashed at bshell.c line 68 when trying to access
 protected memory.  That was within the `parsePath()` function and seems
 to be withing the `dirs` variable.  You can use the debugger to do
 many other things, but I won't go into that here.  Use `quit` to exit
