@@ -1,18 +1,16 @@
-## CMSC 226##
 # Project #3: Writing a Custom Shell<br>
-## Due: October 10, 2018
 
 The objective of this lab is to give you a bit of more advanced
 systems programming using C.  You will need to use pointers, dynamic
-memory allocation, fork(), and wait().  You must complete this lab so
-that it compiles and runs correctly on your Raspberry Pi.  Beware: a
-program that works on a Mac may not work on Raspbian!
+memory allocation, `fork()`, and `wait()`.  You must complete this lab
+so that it compiles and runs correctly on your Raspberry Pi.  Beware:
+a program that works on a Mac may not work on Raspbian!
 
 Solutions will not receive full credit if they fail to compile, crash,
 are incomplete, or have memory leaks.  All functions and any
 significant algorithms must be fully explained by comments.
 
-##Part 1: Fixing the helper functions##
+## Part 1: Fixing the helper functions
 
 1. You should read through the code (`shell.h` and `shell.c`) to make
 sure you understand the functions I've written to get you started.
@@ -169,19 +167,22 @@ You can limit the entire prompt's length to 512 characters.  Use `man
 1. Add some built-in commands.  A built-in command is one that is
 built into the shell: it runs directly, without creating a new
 process.  Implement `jobs`, `exit` and `kill` as built-in commands.
-    a. **exit** When the user types exit, you should leave the shell. 
-    b. **jobs** Should list, one per line, each job ID and command
-       that is currently running in the background.  Try `jobs` in
-       Linux to get an idea how this looks.  Assume that no more than
-       10 jobs can be run in the background at one time and enforce
-       this limit.  If the user backgrounds an eleventh job, just warn
-       them and run it in the foreground.  Job IDs are assigned
-       consecutively so that they never repeat.  Hint: see `waidpid`.
-       I recommend that you put the jobs information in a structure so
-       that the id, pid, and executable name are kept together.
-    c. **kill JOB-ID** This command is used with the JOB-ID argument.
-       It should terminate the process with the specified job ID in
-       this shell (not its process ID).  Hint: see the `kill` system
-       call.
 
+a. **exit** When the user types exit, you should leave the shell. 
+
+b. **jobs** Should list, one per line, each job ID and command that is
+   currently running in the background.  Try `jobs` in Linux to get an
+   idea how this looks.  Assume that no more than 10 jobs can be run
+   in the background at one time and enforce this limit.  If the user
+   backgrounds an eleventh job, just warn them and run it in the
+   foreground.  Job IDs are assigned consecutively so that they never
+   repeat.  Hint: see `waidpid`.  I recommend that you put the jobs
+   information in a structure so that the id, pid, and executable name
+   are kept together.
+
+c. **kill JOB-ID** This command is used with the JOB-ID argument.  It
+    should terminate the process with the specified job ID in this
+    shell (not its process ID).  Hint: see the `kill` system call.
+
+2. Ctrl-C should not kill your shell. (Hint: TLPI Ch. 20-21)
 
