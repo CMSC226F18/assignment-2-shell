@@ -6,6 +6,14 @@ memory allocation, `fork()`, and `wait()`.  You must complete this lab
 so that it compiles and runs correctly on your Raspberry Pi.  Beware:
 a program that works on a Mac may not work on Raspbian!
 
+The shell program you will write runs in an infinite loop, taking a
+user command line, parsing it, looking for the command in the
+directories specified by the environment's PATH variable, and then
+spawning a child process to run the command.  Your first job will be
+to parse the path and place it into an array of strings.  You will
+finish the main procedure that forks processes and then go on to add
+additional capabilities I specify below.
+
 Solutions will not receive full credit if they fail to compile, crash,
 are incomplete, or have memory leaks.  All functions and any
 significant algorithms must be fully explained by comments.
@@ -23,16 +31,7 @@ cause and/or hide bugs in your code.
 bshell bshell.c`.  Run the program; it should crash with a
 segmentation fault.  Rats!
 
-3. **Overview:** The shell program you will write runs in an infinite
-loop, taking a user command line, parsing it, looking for the command
-in the directories specified by the environment's PATH variable, and
-then spawning a child process to run the command.  Your first job will
-be to parse the path and place it into an array of strings.  You will
-finish the main procedure that forks processes and then go on to add
-additional capabilities I specify below.
-
-
-4. First you need to fix the bug in `parsePath`.  Let's use a
+3. First you need to fix the bug in `parsePath`.  Let's use a
 debugger called `gdb` to help.
 
 To use the debugger you must start by compiling with the `-g` flag.
