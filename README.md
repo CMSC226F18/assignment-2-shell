@@ -187,3 +187,27 @@ process.  Implement `jobs`, `exit` and `kill` as built-in commands.
 
 2. Ctrl-C should not kill your shell. (Hint: TLPI Ch. 20-21)
 
+
+
+## Extra
+
+* If a user runs your shell with a command line argument, interpret
+  that argument as a name of a script and execute that file line by
+  line rather than running interactively:
+
+  ```bshell:lab4$ bshell test.bsh```
+
+* Implement I/O redirection (see section 27.4 of the TPI. )
+  ```ls > listofdirectory.txt```
+
+* Implement piping (see Chapter 44 of the TPI.)
+
+   ```ls | grep “areyouhere.txt”```
+   
+* Implement full job control (Ch. 34 of TPI)
+
+* Implement the wildcard (*) expansion
+ ```cat *.txt```
+
+* Implement a history function.
+					  
