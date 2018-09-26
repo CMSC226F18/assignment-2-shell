@@ -12,8 +12,9 @@
 #define MAX_PATHS 3
 #define MAX_PATH_LEN 96
 
+#define SEP " \t\n"
 #define WHITESPACE " .,\t\n"
-#define DELIM ':'
+#define DELIM ":"
 
 #define PROMPT "$: "
 

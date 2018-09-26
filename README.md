@@ -71,20 +71,15 @@ should not disturb the string returned by `getenv`, so you will need
 to dynamically allocate enough memory to store the entire path.
 
 5. Now complete `parsePath`.  You need to parse `thePath`, by looping
-over it (via `nextcharptr`), and pointing to each substring in the
-`dirs` array that is filled.  For example, if the PATH contains
-".:/bin:/usr/bin", you will fill `dirs` as follows:
+over it, I suggest `strotok` like we do in `parseCommand`. For
+example, if the PATH contains ".:/bin:/usr/bin", you will fill `dirs`
+as follows:
 
 ```
 dirs[0] contains .
 dirs[1] contains /bin
 dirs[2] contains /usr/bin
 ```
-
-Note that you really just need each element of `dirs` to point to the
-right place in `thePath`.  If these are to be interpreted as strings,
-you will then replace the delimiter with the string terminator, the
-value '\0'.
 
 6.  Once `parsePath` works, you should verify this with the DEBUG loop
 at the end of the function.
@@ -130,11 +125,12 @@ user.  Free the memory allocated to fullpath as appropriate.  If the
 command is not found, warn the user.
 
 6. If the command is found then fork a new process.  Within the child
-process you will call `execv` to replace the copied child
-process with the command typed by the user and found
-by `lookupPath`.  The parent process should wait on the
-child process to finish before it goes on.  At this point you will
-have a rudimentary shell.
+process you will call `execv` to replace the copied child process with
+the command typed by the user and found by `lookupPath`.  In
+development you can use `execvp` to bypass the manual `PATH`
+processing, but the final version should use `execv`. The parent
+process should wait on the child process to finish before it goes on.
+At this point you will have a rudimentary shell.
 
 7. Note: You program should free all allocated memory that is not
 needed.  You can find relevant variables by finding calls to `malloc`
@@ -154,6 +150,8 @@ sharing the CPU with its parent.
 
 You can limit the entire prompt's length to 512 characters.  Use `man
 -k 'working directory'` to find a suitable command.
+
+10. **cd directory** should change the current working directory.
 
 ## Part 3: Built-in Commands for Job Control
 
@@ -178,9 +176,9 @@ process.  Implement `jobs`, `exit` and `kill` as built-in commands.
        It should terminate the process with the specified job ID in
        this shell (not its process ID).  Hint: see the `kill` system
        call.
+    
 
-
-## Extra
+## Bonus
 
 * Ctrl-C should not kill your shell. (Hint: TLPI Ch. 20-21)
 

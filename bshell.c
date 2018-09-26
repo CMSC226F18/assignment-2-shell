@@ -6,7 +6,7 @@
   AUTHOR: PUT YOUR NAME HERE
 */
 
-#include "shell.h"
+#include "bshell.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,12 +47,6 @@ int parsePath(char *dirs[]) {
 
   /* Now parse thePath */
   nextcharptr = thePath;
-  /* Eliminate extra delimiters. */
-  while (*nextcharptr == DELIM) nextcharptr++;
-  if (*nextcharptr == 0) {
-    fprintf(stderr,"No paths present.\n");
-    return 0;
-  }
 
   /* 
      Find all substrings delimited by DELIM.  Make a dir element
@@ -137,33 +131,27 @@ char *lookupPath(char *fname, char **dir,int num) {
 
 */
 int parseCmd(char *cmdLine, struct Command *cmd) {
-  char *clptr = cmdLine;
-  int maxlen = strlen(cmdLine);
   int argc = 0; // arg count
-  int len; // length of arg
+  char* token;
+  int i = 0;
 
-  cmd->argv[argc] = (char *) malloc(MAX_ARG_LEN);
-
-  // extract args up to max number
-  while (argc < MAX_ARGS-1) {
-    // find next arg
-    while (*clptr != 0 && isspace(*clptr)) clptr++;
-    if (*clptr == 0) break; // no next arg, just space
-    // go to next whitespace, keep length
-    len = 0;  
-    while (*clptr != 0 && !isspace(*clptr)) {
-      clptr++;
-      len++;
-    }
-    // copy over substring
-    cmd->argv[argc] = (char *) malloc(len+1);
-    strncpy(cmd->argv[argc],(clptr-len),len);
-    cmd->argv[argc][len] = 0;
-    /*    printf("ZZ %s\n",cmd->argv[argc]); /* Debug */
+  token = strtok(cmdLine, SEP);
+  while (token != NULL && argc < MAX_ARGS){    
+    cmd->argv[argc] = strdup(token);
+    token = strtok (NULL, SEP);
     argc++;
   }
-  cmd->argv[argc] = NULL;
+
+  cmd->argv[argc] = NULL;  
   cmd->argc = argc;
+
+#ifdef DEBUG
+  printf("CMDS (%d): ", cmd->argc);
+  for (i = 0; i < argc; i++)
+    printf("CMDS: %s",cmd->argv[i]);
+  printf("\n");
+#endif
+  
   return argc;
 }
 
