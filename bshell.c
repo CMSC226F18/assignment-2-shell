@@ -15,7 +15,7 @@
 
 int parsePath(char *dirs[]);
 char *lookupPath(char *fname, char **dir,int num);
-int parseCmd(char *cmdLine, struct Command *cmd);
+int parseCmd(char *cmdLine, Command *cmd);
 
 /*
   Read PATH environment var and create an array of dirs specified by PATH.
@@ -130,7 +130,7 @@ char *lookupPath(char *fname, char **dir,int num) {
   Note: caller must free cmd->argv[0..argc]
 
 */
-int parseCmd(char *cmdLine, struct Command *cmd) {
+int parseCmd(char *cmdLine, Command *cmd) {
   int argc = 0; // arg count
   char* token;
   int i = 0;

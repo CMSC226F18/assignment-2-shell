@@ -19,7 +19,7 @@
 #define PROMPT "$: "
 
 /* Store commands in this structure */
-struct Command {
+typedef struct {
   int argc; // number of args
   char *argv[MAX_ARGS]; // args.  arg[0] is command
-};
+} Command;
