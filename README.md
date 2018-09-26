@@ -12,7 +12,7 @@ directories specified by the environment's PATH variable, and then
 spawning a child process to run the command.  Your first job will be
 to parse the path and place it into an array of strings.  You will
 finish the main procedure that forks processes and then go on to add
-additional capabilities I specify below.
+additional capabilities specified below.
 
 Solutions will not receive full credit if they fail to compile, crash,
 are incomplete, or have memory leaks.  All functions and any
