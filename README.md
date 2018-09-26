@@ -43,7 +43,7 @@ crashes, type `where` within the gdb program.  This will tell you
 where your program crashed.  Here's an example.
 
 ```
-pi@raspberry$ gcc -g2 -o bshell bshell.c
+pi@raspberry$ gcc -g -o bshell bshell.c
 pi@raspberry$ gdb bshell
 ...
 (gdb) run
