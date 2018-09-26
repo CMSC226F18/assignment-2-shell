@@ -38,16 +38,9 @@ debugger called `gdb` to help.
 
 To use the debugger you must start by compiling with the `-g` flag.
 This will retain symbol information needed for running a debugging
-program.  You can then run `gdb bshell`.  To run the program, you run
-it within the gdb debugger.
-
-```
-gdb bshell
-(gdb) run
-```
-
-Now, when the program crashes, type `where` within the gdb program.
-This will tell you where your program crashed.  Here's an example.
+program.  You can then run `gdb bshell`.  Now, when the program
+crashes, type `where` within the gdb program.  This will tell you
+where your program crashed.  Here's an example.
 
 ```
 pi@raspberry$ gcc -g2 -o bshell bshell.c
