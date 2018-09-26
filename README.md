@@ -38,11 +38,11 @@ debugger called `gdb` to help.
 
 To use the debugger you must start by compiling with the `-g` flag.
 This will retain symbol information needed for running a debugging
-program.  You can then run `gdb shell`.  To run the program, you run
+program.  You can then run `gdb bshell`.  To run the program, you run
 it within the gdb debugger.
 
 ```
-gdb shell
+gdb bshell
 (gdb) run
 ```
 
