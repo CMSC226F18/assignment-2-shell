@@ -196,14 +196,14 @@ process.  Implement `jobs`, `exit` and `kill` as built-in commands.
 
   ```bshell:lab4$ bshell test.bsh```
 
-* Implement I/O redirection (see section 27.4 of the TPI. )
+* Implement I/O redirection (see section 27.4 of the TLPI. )
   ```ls > listofdirectory.txt```
 
-* Implement piping (see Chapter 44 of the TPI.)
+* Implement piping (see Chapter 44 of the TLPI.)
 
    ```ls | grep “areyouhere.txt”```
    
-* Implement full job control (Ch. 34 of TPI)
+* Implement full job control (Ch. 34 of TLPI)
 
 * Implement the wildcard (*) expansion
  ```cat *.txt```
