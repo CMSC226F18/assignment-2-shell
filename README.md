@@ -168,21 +168,22 @@ You can limit the entire prompt's length to 512 characters.  Use `man
 built into the shell: it runs directly, without creating a new
 process.  Implement `jobs`, `exit` and `kill` as built-in commands.
 
-a. **exit** When the user types exit, you should leave the shell. 
+   a. **exit** When the user types exit, you should leave the shell.
 
-b. **jobs** Should list, one per line, each job ID and command that is
-   currently running in the background.  Try `jobs` in Linux to get an
-   idea how this looks.  Assume that no more than 10 jobs can be run
-   in the background at one time and enforce this limit.  If the user
-   backgrounds an eleventh job, just warn them and run it in the
-   foreground.  Job IDs are assigned consecutively so that they never
-   repeat.  Hint: see `waidpid`.  I recommend that you put the jobs
-   information in a structure so that the id, pid, and executable name
-   are kept together.
+    b. **jobs** Should list, one per line, each job ID and command
+       that is currently running in the background.  Try `jobs` in
+       Linux to get an idea how this looks.  Assume that no more than
+       10 jobs can be run in the background at one time and enforce
+       this limit.  If the user backgrounds an eleventh job, just warn
+       them and run it in the foreground.  Job IDs are assigned
+       consecutively so that they never repeat.  Hint: see `waidpid`.
+       I recommend that you put the jobs information in a structure so
+       that the id, pid, and executable name are kept together.
 
-c. **kill JOB-ID** This command is used with the JOB-ID argument.  It
-    should terminate the process with the specified job ID in this
-    shell (not its process ID).  Hint: see the `kill` system call.
+    c. **kill JOB-ID** This command is used with the JOB-ID argument.
+       It should terminate the process with the specified job ID in
+       this shell (not its process ID).  Hint: see the `kill` system
+       call.
 
 2. Ctrl-C should not kill your shell. (Hint: TLPI Ch. 20-21)
 
