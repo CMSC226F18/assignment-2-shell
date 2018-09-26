@@ -71,11 +71,11 @@ to be withing the `dirs` variable.  You can use the debugger to do
 many other things, but I won't go into that here.  Use `quit` to exit
 gdb.
 
-5. Fix the error in `parsePath` before you go on.  Note that you
+4. Fix the error in `parsePath` before you go on.  Note that you
 should not disturb the string returned by `getenv`, so you will need
 to dynamically allocate enough memory to store the entire path.
 
-6. Now complete `parsePath`.  You need to parse `thePath`, by looping
+5. Now complete `parsePath`.  You need to parse `thePath`, by looping
 over it (via `nextcharptr`), and pointing to each substring in the
 `dirs` array that is filled.  For example, if the PATH contains
 ".:/bin:/usr/bin", you will fill `dirs` as follows:
@@ -86,15 +86,15 @@ dirs[1] contains /bin
 dirs[2] contains /usr/bin
 ```
 
-<p>Note that you really just need each element of `dirs` to
-point to the right place in `thePath`.  If these are to be
-interpreted as strings, you will then replace the delimiter with the
-string terminator, the value '\0'.
+Note that you really just need each element of `dirs` to point to the
+right place in `thePath`.  If these are to be interpreted as strings,
+you will then replace the delimiter with the string terminator, the
+value '\0'.
 
-7.  Once `parsePath` works, you should verify this with the DEBUG loop
+6.  Once `parsePath` works, you should verify this with the DEBUG loop
 at the end of the function.
 
-8. Now to write the actual shell.  This is an infinite loop in `main`
+7. Now to write the actual shell.  This is an infinite loop in `main`
 that reads a command and either executes it directly or spawns a child
 process to do so.  In the latter case, the actual command is just the
 one found on the PATH.
