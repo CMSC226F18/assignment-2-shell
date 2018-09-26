@@ -1,10 +1,14 @@
-# Writing a Custom Shell<br>
+# BSHELL: Writing a Custom Shell
 
-The objective of this lab is to give you a bit of more advanced
-systems programming using C.  You will need to use pointers, dynamic
-memory allocation, `fork()`, and `wait()`.  You must complete this lab
-so that it compiles and runs correctly on your Raspberry Pi.  Beware:
-a program that works on a Mac may not work on Raspbian!
+Bash as a name for a shell is already taken (it stands for Bourne
+Again Shell), so in this lab we’ll develop BSH: The Bard Shell.  The
+objective of this lab is to become more familiar with UNIX processes
+and ever more practice with low-level C programming.
+
+You will need to use pointers, dynamic memory allocation, `fork()`,
+and `wait()`.  You must complete this lab so that it compiles and runs
+correctly on your Raspberry Pi.  Beware: a program that works on a Mac
+may not work on Raspbian!
 
 The shell program you will write runs in an infinite loop, taking a
 user command line, parsing it, looking for the command in the
