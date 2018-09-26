@@ -20,7 +20,7 @@ use.  You may need to add more.  Be warned that these constants can
 cause and/or hide bugs in your code.
 
 2. You can compile this program by typing `gcc -Wpedantic -o
-shell bshell.c`.  Run the program; it should crash with a
+bshell bshell.c`.  Run the program; it should crash with a
 segmentation fault.  Rats!
 
 3. **Overview:** The shell program you will write runs in an infinite
@@ -49,8 +49,8 @@ Now, when the program crashes, type `where` within the gdb program.
 This will tell you where your program crashed.  Here's an example.
 
 ```
-pi@raspberry$ gcc -g2 -o shell bshell.c
-pi@raspberry$ gdb shell
+pi@raspberry$ gcc -g2 -o bshell bshell.c
+pi@raspberry$ gdb bshell
 ...
 (gdb) run
 ...
