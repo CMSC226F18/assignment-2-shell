@@ -65,11 +65,11 @@ strlen () at ../sysdeps/x86_64/strlen.S:106
 ```
 
 
-The preceding progam crashed at bshell.c line 68 when trying to access
-protected memory.  That was within the `parsePath()` function and seems
-to be withing the `dirs` variable.  You can use the debugger to do
-many other things, but I won't go into that here.  Use `quit` to exit
-gdb.
+The preceding progam crashed at `bshell.c` line 68 when trying to
+access protected memory.  That was within the `parsePath()` function
+and seems to be withing the `dirs` variable.  You can use the debugger
+to do many other things, but I won't go into that here.  Use `quit` to
+exit gdb.
 
 4. Fix the error in `parsePath` before you go on.  Note that you
 should not disturb the string returned by `getenv`, so you will need
@@ -184,11 +184,10 @@ process.  Implement `jobs`, `exit` and `kill` as built-in commands.
        this shell (not its process ID).  Hint: see the `kill` system
        call.
 
-2. Ctrl-C should not kill your shell. (Hint: TLPI Ch. 20-21)
-
-
 
 ## Extra
+
+* Ctrl-C should not kill your shell. (Hint: TLPI Ch. 20-21)
 
 * If a user runs your shell with a command line argument, interpret
   that argument as a name of a script and execute that file line by
