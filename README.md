@@ -24,10 +24,8 @@ significant algorithms must be fully explained by comments.
 
 ## Part 1: Fixing the helper functions
 
-1. You should read through the code (`bshell.h` and `bshell.c`) to make
-sure you understand the functions I've written to get you started.
-Your task will be to finish the shell as specified below.  Note that
-the header file, `bshell.h` specifies a number of constants you should
+1. Read through the code (`bshell.h` and `bshell.c`). Note that the
+header file, `bshell.h` specifies a number of constants you should
 use.  You may need to add more.  Be warned that these constants can
 cause and/or hide bugs in your code.
 
