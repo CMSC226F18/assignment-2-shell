@@ -67,7 +67,7 @@ strlen () at ../sysdeps/x86_64/strlen.S:106
 
 
 The preceding progam crashed at shell.c line 68 when trying to access
-protected memory.  That was within the parsePath() function and seems
+protected memory.  That was within the `parsePath()` function and seems
 to be withing the `dirs` variable.  You can use the debugger to do
 many other things, but I won't go into that here.  Use `quit` to exit
 gdb.
