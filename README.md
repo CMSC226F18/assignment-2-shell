@@ -1,4 +1,4 @@
-# Project #3: Writing a Custom Shell<br>
+# Writing a Custom Shell<br>
 
 The objective of this lab is to give you a bit of more advanced
 systems programming using C.  You will need to use pointers, dynamic
